@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国境しりとり</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./effect.css">
+    <link rel="icon" href="./assets/image/favicon.ico">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title">国境しりとり</div>
+      <button id="help-button">?</button>
+    </header>
+        
+    <div class="chat-container">
+      <div class="chat-log" id="chatLog">
+          <!-- CPU初期メッセージ -->
+      </div>
+            
+      <div class="input-area">
+        <input type="text" class="user-input" id="userInput" placeholder="メッセージを入力..." oninput="showSuggestions()">
+        <button class="send-button" onclick="sendMessage()">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+          </svg>
+        </button>
+                
+        <div class="suggestions-container" id="suggestionsContainer">
+            <!-- 変換候補 -->
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <!-- ヘルプモーダル -->
+  <div class="modal" id="helpModal">
+    <div id="modal-cover"></div>
+    <div class="modal-content">
+      <div class="modal-title">国境しりとりについて</div>
+      <div class="modal-text">
+        <p>
+          <strong>国境しりとり</strong>は、プレイヤーとコンピュータが交互に隣接する国の名前を言い合うゲームです。
+        </p>
+        <br>
+        <p>
+          【ルール】
+          <br>・使用する国のリストはISO 3166に基づきます
+          <br>・海外領土や海外準県は隣接していないとみなし、国内にある他の州と同じ扱いの州や都市（例：カリーニングラード州やスペインのセウタ）のみ隣接しているとみなします
+          <br>・2回連続でミスをするか、言える国がなくなったらゲーム終了です
+        </p>
+        <br>
+        <p>
+          【設定】<br>
+          <div class="settings-container">
+            <label>
+              ・非国連加盟国を除外
+              <input type="checkbox" class="switch" id="remove-nonmembers">
+              <span class="slider"></span>
+            </label>
+            <label>
+              ・飛び地による隣接を除外
+              <input type="checkbox" class="switch" id="remove-enclaves">
+              <span class="slider"></span>
+            </label>
+            <label>
+              ・島国を除外
+              <input type="checkbox" class="switch" id="remove-islands">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </p>
+        <p class="small-text">※設定は次ゲームから適用されます</p>
+      </div>
+      
+      <button id="close-button">閉じる</button>
+    </div>
+  </div>
+    <!-- JS -->
+  <script src="./modal.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
