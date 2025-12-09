@@ -9,9 +9,9 @@
     <link rel="icon" href="./assets/image/favicon.ico">
 </head>
 <body>
-  <div class="container">
+  <main class="main-container">
     <header>
-      <div class="title">国境しりとり</div>
+      <div class="main-title">国境しりとり</div>
       <button id="help-button">?</button>
     </header>
         
@@ -21,7 +21,7 @@
       </div>
             
       <div class="input-area">
-        <input type="text" class="user-input" id="userInput" placeholder="メッセージを入力..." oninput="showSuggestions()">
+        <input type="text" class="user-input" id="userInput" placeholder="メッセージを入力..." oninput="showSuggestions()" spellcheck="false">
         <button class="send-button" onclick="sendMessage()">
           <svg class="icon" viewBox="0 0 24 24">
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
     
     <!-- ヘルプモーダル -->
   <div class="modal" id="helpModal">
