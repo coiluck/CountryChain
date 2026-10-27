@@ -1,3 +1,5 @@
+import './modal.js';
+
 // ページが読み込まれたら使う変数作る
 const countryData = {
   "Afghanistan": ["Iran", "Pakistan", "Turkmenistan", "Uzbekistan", "Tajikistan", "China"],
@@ -376,6 +378,8 @@ function showSuggestions() {
       suggestionsContainer.style.display = 'none';
   }
 }
+document.getElementById('userInput').addEventListener('input', showSuggestions);
+document.getElementById('sendButton').addEventListener('click', sendMessage);
 // ユーザーターンかつEnterキーで送信
 document.getElementById('userInput').addEventListener('keypress', function(e) {
   if (e.key === 'Enter' && isPlayerTurn === true ) {

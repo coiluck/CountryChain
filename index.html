@@ -21,8 +21,8 @@
       </div>
             
       <div class="input-area">
-        <input type="text" class="user-input" id="userInput" placeholder="メッセージを入力..." oninput="showSuggestions()" spellcheck="false">
-        <button class="send-button" onclick="sendMessage()">
+        <input type="text" class="user-input" id="userInput" placeholder="メッセージを入力..." spellcheck="false">
+        <button class="send-button" id="sendButton">
           <svg class="icon" viewBox="0 0 24 24">
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
           </svg>
@@ -79,7 +79,6 @@
     </div>
   </div>
     <!-- JS -->
-  <script src="./modal.js"></script>
-  <script src="./main.js"></script>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
