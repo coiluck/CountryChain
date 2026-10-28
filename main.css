@@ -180,9 +180,14 @@ header {
 .suggestion-item {
   padding: 10px 15px;
   cursor: pointer;
+  outline: none;
   border-bottom: 1px solid var(--border-color);
 }
-.suggestion-item:hover {
+.suggestion-item:hover,
+.suggestion-item.active {
+  background-color: var(--highlight-color);
+}
+.suggestion-item:focus {
   background-color: var(--highlight-color);
 }
 .suggestion-item:last-child {

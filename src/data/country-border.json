@@ -1,0 +1,1190 @@
+{
+  "AFG": {
+    "enName": "Afghanistan",
+    "jaName": "アフガニスタン",
+    "jaKana": "あふがにすたん",
+    "neighbors": ["IRN", "PAK", "TKM", "UZB", "TJK", "CHN"]
+  },
+  "ALB": {
+    "enName": "Albania",
+    "jaName": "アルバニア",
+    "jaKana": "あるばにあ",
+    "neighbors": ["MNE", "XKX", "MKD", "GRC"]
+  },
+  "DZA": {
+    "enName": "Algeria",
+    "jaName": "アルジェリア",
+    "jaKana": "あるじぇりあ",
+    "neighbors": ["MAR", "ESH", "MRT", "MLI", "NER", "LBY", "TUN"]
+  },
+  "AND": {
+    "enName": "Andorra",
+    "jaName": "アンドラ",
+    "jaKana": "あんどら",
+    "neighbors": ["FRA", "ESP"]
+  },
+  "AGO": {
+    "enName": "Angola",
+    "jaName": "アンゴラ",
+    "jaKana": "あんごら",
+    "neighbors": ["COD", "ZMB", "NAM", "COG"]
+  },
+  "ATG": {
+    "enName": "Antigua and Barbuda",
+    "jaName": "アンティグア・バーブーダ",
+    "jaKana": "あんてぃぐあ・ばーぶーだ",
+    "neighbors": []
+  },
+  "ARG": {
+    "enName": "Argentina",
+    "jaName": "アルゼンチン",
+    "jaKana": "あるぜんちん",
+    "neighbors": ["CHL", "BOL", "PRY", "BRA", "URY"]
+  },
+  "ARM": {
+    "enName": "Armenia",
+    "jaName": "アルメニア",
+    "jaKana": "あるめにあ",
+    "neighbors": ["GEO", "AZE", "IRN", "TUR"]
+  },
+  "AUS": {
+    "enName": "Australia",
+    "jaName": "オーストラリア",
+    "jaKana": "おーすとらりあ",
+    "neighbors": []
+  },
+  "AUT": {
+    "enName": "Austria",
+    "jaName": "オーストリア",
+    "jaKana": "おーすとりあ",
+    "neighbors": ["DEU", "CZE", "SVK", "HUN", "SVN", "ITA", "CHE", "LIE"]
+  },
+  "AZE": {
+    "enName": "Azerbaijan",
+    "jaName": "アゼルバイジャン",
+    "jaKana": "あぜるばいじゃん",
+    "neighbors": ["RUS", "GEO", "ARM", "IRN", "TUR"]
+  },
+  "BHS": {
+    "enName": "Bahamas",
+    "jaName": "バハマ",
+    "jaKana": "ばはま",
+    "neighbors": []
+  },
+  "BHR": {
+    "enName": "Bahrain",
+    "jaName": "バーレーン",
+    "jaKana": "ばーれーん",
+    "neighbors": []
+  },
+  "BGD": {
+    "enName": "Bangladesh",
+    "jaName": "バングラデシュ",
+    "jaKana": "ばんぐらでしゅ",
+    "neighbors": ["IND", "MMR"]
+  },
+  "BRB": {
+    "enName": "Barbados",
+    "jaName": "バルバドス",
+    "jaKana": "ばるばどす",
+    "neighbors": []
+  },
+  "BLR": {
+    "enName": "Belarus",
+    "jaName": "ベラルーシ",
+    "jaKana": "べらるーし",
+    "neighbors": ["RUS", "UKR", "POL", "LTU", "LVA"]
+  },
+  "BEL": {
+    "enName": "Belgium",
+    "jaName": "ベルギー",
+    "jaKana": "べるぎー",
+    "neighbors": ["FRA", "NLD", "DEU", "LUX"]
+  },
+  "BLZ": {
+    "enName": "Belize",
+    "jaName": "ベリーズ",
+    "jaKana": "べりーず",
+    "neighbors": ["MEX", "GTM"]
+  },
+  "BEN": {
+    "enName": "Benin",
+    "jaName": "ベナン",
+    "jaKana": "べなん",
+    "neighbors": ["NER", "BFA", "TGO", "NGA"]
+  },
+  "BTN": {
+    "enName": "Bhutan",
+    "jaName": "ブータン",
+    "jaKana": "ぶーたん",
+    "neighbors": ["CHN", "IND"]
+  },
+  "BOL": {
+    "enName": "Bolivia",
+    "jaName": "ボリビア",
+    "jaKana": "ぼりびあ",
+    "neighbors": ["BRA", "PER", "CHL", "ARG", "PRY"]
+  },
+  "BIH": {
+    "enName": "Bosnia and Herzegovina",
+    "jaName": "ボスニア・ヘルツェゴビナ",
+    "jaKana": "ぼすにあ・へるつぇごびな",
+    "neighbors": ["HRV", "SRB", "MNE"]
+  },
+  "BWA": {
+    "enName": "Botswana",
+    "jaName": "ボツワナ",
+    "jaKana": "ぼつわな",
+    "neighbors": ["NAM", "ZAF", "ZWE", "ZMB"]
+  },
+  "BRA": {
+    "enName": "Brazil",
+    "jaName": "ブラジル",
+    "jaKana": "ぶらじる",
+    "neighbors": ["URY", "ARG", "PRY", "BOL", "PER", "COL", "VEN", "GUY", "SUR", "FRA"]
+  },
+  "BRN": {
+    "enName": "Brunei",
+    "jaName": "ブルネイ",
+    "jaKana": "ぶるねい",
+    "neighbors": ["MYS"]
+  },
+  "BGR": {
+    "enName": "Bulgaria",
+    "jaName": "ブルガリア",
+    "jaKana": "ぶるがりあ",
+    "neighbors": ["ROU", "SRB", "MKD", "GRC", "TUR"]
+  },
+  "BFA": {
+    "enName": "Burkina Faso",
+    "jaName": "ブルキナファソ",
+    "jaKana": "ぶるきなふぁそ",
+    "neighbors": ["MLI", "NER", "BEN", "TGO", "GHA", "CIV"]
+  },
+  "BDI": {
+    "enName": "Burundi",
+    "jaName": "ブルンジ",
+    "jaKana": "ぶるんじ",
+    "neighbors": ["RWA", "TZA", "COD"]
+  },
+  "KHM": {
+    "enName": "Cambodia",
+    "jaName": "カンボジア",
+    "jaKana": "かんぼじあ",
+    "neighbors": ["THA", "LAO", "VNM"]
+  },
+  "CMR": {
+    "enName": "Cameroon",
+    "jaName": "カメルーン",
+    "jaKana": "かめるーん",
+    "neighbors": ["NGA", "TCD", "CAF", "COG", "GAB", "GNQ"]
+  },
+  "CAN": {
+    "enName": "Canada",
+    "jaName": "カナダ",
+    "jaKana": "かなだ",
+    "neighbors": ["USA"]
+  },
+  "CPV": {
+    "enName": "Cape Verde",
+    "jaName": "カーボベルデ",
+    "jaKana": "かーぼべるで",
+    "neighbors": []
+  },
+  "CAF": {
+    "enName": "Central African Republic",
+    "jaName": "中央アフリカ",
+    "jaKana": "ちゅうおうあふりか",
+    "neighbors": ["TCD", "SDN", "SSD", "COD", "COG", "CMR"]
+  },
+  "TCD": {
+    "enName": "Chad",
+    "jaName": "チャド",
+    "jaKana": "ちゃど",
+    "neighbors": ["LBY", "SDN", "CAF", "CMR", "NGA", "NER"]
+  },
+  "CHL": {
+    "enName": "Chile",
+    "jaName": "チリ",
+    "jaKana": "ちり",
+    "neighbors": ["PER", "BOL", "ARG"]
+  },
+  "CHN": {
+    "enName": "China",
+    "jaName": "中国",
+    "jaKana": "ちゅうごく",
+    "neighbors": ["PRK", "RUS", "MNG", "KAZ", "KGZ", "TJK", "AFG", "PAK", "IND", "NPL", "BTN", "MMR", "LAO", "VNM"]
+  },
+  "COL": {
+    "enName": "Colombia",
+    "jaName": "コロンビア",
+    "jaKana": "ころんびあ",
+    "neighbors": ["PAN", "VEN", "BRA", "PER", "ECU"]
+  },
+  "COM": {
+    "enName": "Comoros",
+    "jaName": "コモロ",
+    "jaKana": "こもろ",
+    "neighbors": []
+  },
+  "COG": {
+    "enName": "Republic of the Congo",
+    "jaName": "コンゴ共和国",
+    "jaKana": "こんごきょうわこく",
+    "neighbors": ["COD", "CAF", "CMR", "GAB", "AGO"]
+  },
+  "COD": {
+    "enName": "Democratic Republic of the Congo",
+    "jaName": "コンゴ民主共和国",
+    "jaKana": "こんごみんしゅきょうわこく",
+    "neighbors": ["COG", "CAF", "SSD", "UGA", "RWA", "BDI", "TZA", "ZMB", "AGO"]
+  },
+  "CRI": {
+    "enName": "Costa Rica",
+    "jaName": "コスタリカ",
+    "jaKana": "こすたりか",
+    "neighbors": ["NIC", "PAN"]
+  },
+  "HRV": {
+    "enName": "Croatia",
+    "jaName": "クロアチア",
+    "jaKana": "くろあちあ",
+    "neighbors": ["SVN", "HUN", "BIH", "SRB", "MNE"]
+  },
+  "CUB": {
+    "enName": "Cuba",
+    "jaName": "キューバ",
+    "jaKana": "きゅーば",
+    "neighbors": []
+  },
+  "CYP": {
+    "enName": "Cyprus",
+    "jaName": "キプロス",
+    "jaKana": "きぷろす",
+    "neighbors": []
+  },
+  "CZE": {
+    "enName": "Czech Republic",
+    "jaName": "チェコ",
+    "jaKana": "ちぇこ",
+    "neighbors": ["DEU", "POL", "SVK", "AUT"]
+  },
+  "DNK": {
+    "enName": "Denmark",
+    "jaName": "デンマーク",
+    "jaKana": "でんまーく",
+    "neighbors": ["DEU"]
+  },
+  "DJI": {
+    "enName": "Djibouti",
+    "jaName": "ジブチ",
+    "jaKana": "じぶち",
+    "neighbors": ["ERI", "ETH", "SOM"]
+  },
+  "DMA": {
+    "enName": "Dominica",
+    "jaName": "ドミニカ国",
+    "jaKana": "どみにかこく",
+    "neighbors": []
+  },
+  "DOM": {
+    "enName": "Dominican Republic",
+    "jaName": "ドミニカ共和国",
+    "jaKana": "どみにかきょうわこく",
+    "neighbors": ["HTI"]
+  },
+  "ECU": {
+    "enName": "Ecuador",
+    "jaName": "エクアドル",
+    "jaKana": "えくあどる",
+    "neighbors": ["COL", "PER"]
+  },
+  "EGY": {
+    "enName": "Egypt",
+    "jaName": "エジプト",
+    "jaKana": "えじぷと",
+    "neighbors": ["LBY", "SDN", "ISR", "PSE"]
+  },
+  "SLV": {
+    "enName": "El Salvador",
+    "jaName": "エルサルバドル",
+    "jaKana": "えるさるばどる",
+    "neighbors": ["GTM", "HND"]
+  },
+  "GNQ": {
+    "enName": "Equatorial Guinea",
+    "jaName": "赤道ギニア",
+    "jaKana": "せきどうぎにあ",
+    "neighbors": ["CMR", "GAB"]
+  },
+  "ERI": {
+    "enName": "Eritrea",
+    "jaName": "エリトリア",
+    "jaKana": "えりとりあ",
+    "neighbors": ["SDN", "ETH", "DJI"]
+  },
+  "EST": {
+    "enName": "Estonia",
+    "jaName": "エストニア",
+    "jaKana": "えすとにあ",
+    "neighbors": ["RUS", "LVA"]
+  },
+  "SWZ": {
+    "enName": "Eswatini",
+    "jaName": "エスワティニ",
+    "jaKana": "えすわてぃに",
+    "neighbors": ["ZAF", "MOZ"]
+  },
+  "ETH": {
+    "enName": "Ethiopia",
+    "jaName": "エチオピア",
+    "jaKana": "えちおぴあ",
+    "neighbors": ["ERI", "DJI", "SOM", "KEN", "SSD", "SDN"]
+  },
+  "FJI": {
+    "enName": "Fiji",
+    "jaName": "フィジー",
+    "jaKana": "ふぃじー",
+    "neighbors": []
+  },
+  "FIN": {
+    "enName": "Finland",
+    "jaName": "フィンランド",
+    "jaKana": "ふぃんらんど",
+    "neighbors": ["NOR", "SWE", "RUS"]
+  },
+  "FRA": {
+    "enName": "France",
+    "jaName": "フランス",
+    "jaKana": "ふらんす",
+    "neighbors": ["BEL", "LUX", "DEU", "CHE", "ITA", "MCO", "ESP", "AND", "BRA", "SUR"]
+  },
+  "GAB": {
+    "enName": "Gabon",
+    "jaName": "ガボン",
+    "jaKana": "がぼん",
+    "neighbors": ["GNQ", "CMR", "COG"]
+  },
+  "GMB": {
+    "enName": "Gambia",
+    "jaName": "ガンビア",
+    "jaKana": "がんびあ",
+    "neighbors": ["SEN"]
+  },
+  "GEO": {
+    "enName": "Georgia",
+    "jaName": "ジョージア",
+    "jaKana": "じょーじあ",
+    "neighbors": ["RUS", "AZE", "ARM", "TUR"]
+  },
+  "DEU": {
+    "enName": "Germany",
+    "jaName": "ドイツ",
+    "jaKana": "どいつ",
+    "neighbors": ["DNK", "NLD", "BEL", "LUX", "FRA", "CHE", "AUT", "CZE", "POL"]
+  },
+  "GHA": {
+    "enName": "Ghana",
+    "jaName": "ガーナ",
+    "jaKana": "がーな",
+    "neighbors": ["BFA", "CIV", "TGO"]
+  },
+  "GRC": {
+    "enName": "Greece",
+    "jaName": "ギリシャ",
+    "jaKana": "ぎりしゃ",
+    "neighbors": ["ALB", "MKD", "BGR", "TUR"]
+  },
+  "GRD": {
+    "enName": "Grenada",
+    "jaName": "グレナダ",
+    "jaKana": "ぐれなだ",
+    "neighbors": []
+  },
+  "GTM": {
+    "enName": "Guatemala",
+    "jaName": "グアテマラ",
+    "jaKana": "ぐあてまら",
+    "neighbors": ["MEX", "BLZ", "SLV", "HND"]
+  },
+  "GIN": {
+    "enName": "Guinea",
+    "jaName": "ギニア",
+    "jaKana": "ぎにあ",
+    "neighbors": ["GNB", "SEN", "MLI", "CIV", "LBR", "SLE"]
+  },
+  "GNB": {
+    "enName": "Guinea-Bissau",
+    "jaName": "ギニアビサウ",
+    "jaKana": "ぎにあびさう",
+    "neighbors": ["SEN", "GIN"]
+  },
+  "GUY": {
+    "enName": "Guyana",
+    "jaName": "ガイアナ",
+    "jaKana": "がいあな",
+    "neighbors": ["VEN", "BRA", "SUR"]
+  },
+  "HTI": {
+    "enName": "Haiti",
+    "jaName": "ハイチ",
+    "jaKana": "はいち",
+    "neighbors": ["DOM"]
+  },
+  "HND": {
+    "enName": "Honduras",
+    "jaName": "ホンジュラス",
+    "jaKana": "ほんじゅらす",
+    "neighbors": ["GTM", "SLV", "NIC"]
+  },
+  "HUN": {
+    "enName": "Hungary",
+    "jaName": "ハンガリー",
+    "jaKana": "はんがりー",
+    "neighbors": ["SVK", "UKR", "ROU", "SRB", "HRV", "SVN", "AUT"]
+  },
+  "ISL": {
+    "enName": "Iceland",
+    "jaName": "アイスランド",
+    "jaKana": "あいすらんど",
+    "neighbors": []
+  },
+  "IND": {
+    "enName": "India",
+    "jaName": "インド",
+    "jaKana": "いんど",
+    "neighbors": ["PAK", "CHN", "NPL", "BTN", "MMR", "BGD"]
+  },
+  "IDN": {
+    "enName": "Indonesia",
+    "jaName": "インドネシア",
+    "jaKana": "いんどねしあ",
+    "neighbors": ["MYS", "PNG", "TLS"]
+  },
+  "IRN": {
+    "enName": "Iran",
+    "jaName": "イラン",
+    "jaKana": "いらん",
+    "neighbors": ["TUR", "IRQ", "PAK", "AFG", "TKM", "AZE", "ARM"]
+  },
+  "IRQ": {
+    "enName": "Iraq",
+    "jaName": "イラク",
+    "jaKana": "いらく",
+    "neighbors": ["TUR", "IRN", "KWT", "SAU", "JOR", "SYR"]
+  },
+  "IRL": {
+    "enName": "Ireland",
+    "jaName": "アイルランド",
+    "jaKana": "あいるらんど",
+    "neighbors": ["GBR"]
+  },
+  "ISR": {
+    "enName": "Israel",
+    "jaName": "イスラエル",
+    "jaKana": "いすらえる",
+    "neighbors": ["LBN", "SYR", "JOR", "PSE", "EGY"]
+  },
+  "ITA": {
+    "enName": "Italy",
+    "jaName": "イタリア",
+    "jaKana": "いたりあ",
+    "neighbors": ["FRA", "CHE", "AUT", "SVN", "SMR", "VAT"]
+  },
+  "CIV": {
+    "enName": "Ivory Coast",
+    "jaName": "コートジボワール",
+    "jaKana": "こーとじぼわーる",
+    "neighbors": ["LBR", "GIN", "MLI", "BFA", "GHA"]
+  },
+  "JAM": {
+    "enName": "Jamaica",
+    "jaName": "ジャマイカ",
+    "jaKana": "じゃまいか",
+    "neighbors": []
+  },
+  "JPN": {
+    "enName": "Japan",
+    "jaName": "日本",
+    "jaKana": "にほん",
+    "neighbors": []
+  },
+  "JOR": {
+    "enName": "Jordan",
+    "jaName": "ヨルダン",
+    "jaKana": "よるだん",
+    "neighbors": ["SYR", "IRQ", "SAU", "ISR", "PSE"]
+  },
+  "KAZ": {
+    "enName": "Kazakhstan",
+    "jaName": "カザフスタン",
+    "jaKana": "かざふすたん",
+    "neighbors": ["RUS", "CHN", "KGZ", "UZB", "TKM"]
+  },
+  "KEN": {
+    "enName": "Kenya",
+    "jaName": "ケニア",
+    "jaKana": "けにあ",
+    "neighbors": ["SOM", "ETH", "SSD", "UGA", "TZA"]
+  },
+  "KIR": {
+    "enName": "Kiribati",
+    "jaName": "キリバス",
+    "jaKana": "きりばす",
+    "neighbors": []
+  },
+  "XKX": {
+    "enName": "Kosovo",
+    "jaName": "コソボ",
+    "jaKana": "こそぼ",
+    "neighbors": ["SRB", "MNE", "ALB", "MKD"]
+  },
+  "KWT": {
+    "enName": "Kuwait",
+    "jaName": "クウェート",
+    "jaKana": "くうぇーと",
+    "neighbors": ["IRQ", "SAU"]
+  },
+  "KGZ": {
+    "enName": "Kyrgyzstan",
+    "jaName": "キルギス",
+    "jaKana": "きるぎす",
+    "neighbors": ["KAZ", "CHN", "TJK", "UZB"]
+  },
+  "LAO": {
+    "enName": "Laos",
+    "jaName": "ラオス",
+    "jaKana": "らおす",
+    "neighbors": ["CHN", "VNM", "KHM", "THA", "MMR"]
+  },
+  "LVA": {
+    "enName": "Latvia",
+    "jaName": "ラトビア",
+    "jaKana": "らとびあ",
+    "neighbors": ["EST", "RUS", "BLR", "LTU"]
+  },
+  "LBN": {
+    "enName": "Lebanon",
+    "jaName": "レバノン",
+    "jaKana": "ればのん",
+    "neighbors": ["SYR", "ISR"]
+  },
+  "LSO": {
+    "enName": "Lesotho",
+    "jaName": "レソト",
+    "jaKana": "れそと",
+    "neighbors": ["ZAF"]
+  },
+  "LBR": {
+    "enName": "Liberia",
+    "jaName": "リベリア",
+    "jaKana": "りべりあ",
+    "neighbors": ["SLE", "GIN", "CIV"]
+  },
+  "LBY": {
+    "enName": "Libya",
+    "jaName": "リビア",
+    "jaKana": "りびあ",
+    "neighbors": ["TUN", "DZA", "NER", "TCD", "SDN", "EGY"]
+  },
+  "LIE": {
+    "enName": "Liechtenstein",
+    "jaName": "リヒテンシュタイン",
+    "jaKana": "りひてんしゅたいん",
+    "neighbors": ["CHE", "AUT"]
+  },
+  "LTU": {
+    "enName": "Lithuania",
+    "jaName": "リトアニア",
+    "jaKana": "りとあにあ",
+    "neighbors": ["LVA", "BLR", "POL", "RUS"]
+  },
+  "LUX": {
+    "enName": "Luxembourg",
+    "jaName": "ルクセンブルク",
+    "jaKana": "るくせんぶるく",
+    "neighbors": ["BEL", "FRA", "DEU"]
+  },
+  "MKD": {
+    "enName": "North Macedonia",
+    "jaName": "北マケドニア",
+    "jaKana": "きたまけどにあ",
+    "neighbors": ["XKX", "SRB", "BGR", "GRC", "ALB"]
+  },
+  "MDG": {
+    "enName": "Madagascar",
+    "jaName": "マダガスカル",
+    "jaKana": "まだがすかる",
+    "neighbors": []
+  },
+  "MWI": {
+    "enName": "Malawi",
+    "jaName": "マラウイ",
+    "jaKana": "まらうい",
+    "neighbors": ["TZA", "MOZ", "ZMB"]
+  },
+  "MYS": {
+    "enName": "Malaysia",
+    "jaName": "マレーシア",
+    "jaKana": "まれーしあ",
+    "neighbors": ["THA", "IDN", "BRN"]
+  },
+  "MDV": {
+    "enName": "Maldives",
+    "jaName": "モルディブ",
+    "jaKana": "もるでぃぶ",
+    "neighbors": []
+  },
+  "MLI": {
+    "enName": "Mali",
+    "jaName": "マリ",
+    "jaKana": "まり",
+    "neighbors": ["DZA", "NER", "BFA", "CIV", "GIN", "SEN", "MRT"]
+  },
+  "MLT": {
+    "enName": "Malta",
+    "jaName": "マルタ",
+    "jaKana": "まるた",
+    "neighbors": []
+  },
+  "MHL": {
+    "enName": "Marshall Islands",
+    "jaName": "マーシャル諸島",
+    "jaKana": "まーしゃるしょとう",
+    "neighbors": []
+  },
+  "MRT": {
+    "enName": "Mauritania",
+    "jaName": "モーリタニア",
+    "jaKana": "もーりたにあ",
+    "neighbors": ["ESH", "DZA", "MLI", "SEN"]
+  },
+  "MUS": {
+    "enName": "Mauritius",
+    "jaName": "モーリシャス",
+    "jaKana": "もーりしゃす",
+    "neighbors": []
+  },
+  "MEX": {
+    "enName": "Mexico",
+    "jaName": "メキシコ",
+    "jaKana": "めきしこ",
+    "neighbors": ["USA", "GTM", "BLZ"]
+  },
+  "FSM": {
+    "enName": "Micronesia",
+    "jaName": "ミクロネシア",
+    "jaKana": "みくろねしあ",
+    "neighbors": []
+  },
+  "MDA": {
+    "enName": "Moldova",
+    "jaName": "モルドバ",
+    "jaKana": "もるどば",
+    "neighbors": ["ROU", "UKR"]
+  },
+  "MCO": {
+    "enName": "Monaco",
+    "jaName": "モナコ",
+    "jaKana": "もなこ",
+    "neighbors": ["FRA"]
+  },
+  "MNG": {
+    "enName": "Mongolia",
+    "jaName": "モンゴル",
+    "jaKana": "もんごる",
+    "neighbors": ["RUS", "CHN"]
+  },
+  "MNE": {
+    "enName": "Montenegro",
+    "jaName": "モンテネグロ",
+    "jaKana": "もんてねぐろ",
+    "neighbors": ["HRV", "BIH", "SRB", "XKX", "ALB"]
+  },
+  "MAR": {
+    "enName": "Morocco",
+    "jaName": "モロッコ",
+    "jaKana": "もろっこ",
+    "neighbors": ["DZA", "ESH", "ESP"]
+  },
+  "MOZ": {
+    "enName": "Mozambique",
+    "jaName": "モザンビーク",
+    "jaKana": "もざんびーく",
+    "neighbors": ["TZA", "MWI", "ZMB", "ZWE", "ZAF", "SWZ"]
+  },
+  "MMR": {
+    "enName": "Myanmar",
+    "jaName": "ミャンマー",
+    "jaKana": "みゃんまー",
+    "neighbors": ["CHN", "LAO", "THA", "BGD", "IND"]
+  },
+  "NAM": {
+    "enName": "Namibia",
+    "jaName": "ナミビア",
+    "jaKana": "なみびあ",
+    "neighbors": ["AGO", "ZMB", "BWA", "ZAF"]
+  },
+  "NRU": {
+    "enName": "Nauru",
+    "jaName": "ナウル",
+    "jaKana": "なうる",
+    "neighbors": []
+  },
+  "NPL": {
+    "enName": "Nepal",
+    "jaName": "ネパール",
+    "jaKana": "ねぱーる",
+    "neighbors": ["CHN", "IND"]
+  },
+  "NLD": {
+    "enName": "Netherlands",
+    "jaName": "オランダ",
+    "jaKana": "おらんだ",
+    "neighbors": ["BEL", "DEU"]
+  },
+  "NZL": {
+    "enName": "New Zealand",
+    "jaName": "ニュージーランド",
+    "jaKana": "にゅーじーらんど",
+    "neighbors": []
+  },
+  "NIC": {
+    "enName": "Nicaragua",
+    "jaName": "ニカラグア",
+    "jaKana": "にからぐあ",
+    "neighbors": ["HND", "CRI"]
+  },
+  "NER": {
+    "enName": "Niger",
+    "jaName": "ニジェール",
+    "jaKana": "にじぇーる",
+    "neighbors": ["DZA", "LBY", "TCD", "NGA", "BEN", "BFA", "MLI"]
+  },
+  "NGA": {
+    "enName": "Nigeria",
+    "jaName": "ナイジェリア",
+    "jaKana": "ないじぇりあ",
+    "neighbors": ["NER", "TCD", "CMR", "BEN"]
+  },
+  "PRK": {
+    "enName": "North Korea",
+    "jaName": "北朝鮮",
+    "jaKana": "きたちょうせん",
+    "neighbors": ["CHN", "KOR", "RUS"]
+  },
+  "NOR": {
+    "enName": "Norway",
+    "jaName": "ノルウェー",
+    "jaKana": "のるうぇー",
+    "neighbors": ["SWE", "FIN", "RUS"]
+  },
+  "OMN": {
+    "enName": "Oman",
+    "jaName": "オマーン",
+    "jaKana": "おまーん",
+    "neighbors": ["YEM", "SAU", "ARE"]
+  },
+  "PAK": {
+    "enName": "Pakistan",
+    "jaName": "パキスタン",
+    "jaKana": "ぱきすたん",
+    "neighbors": ["IRN", "AFG", "CHN", "IND"]
+  },
+  "PLW": {
+    "enName": "Palau",
+    "jaName": "パラオ",
+    "jaKana": "ぱらお",
+    "neighbors": []
+  },
+  "PSE": {
+    "enName": "Palestine",
+    "jaName": "パレスチナ",
+    "jaKana": "ぱれすちな",
+    "neighbors": ["ISR", "EGY", "JOR"]
+  },
+  "PAN": {
+    "enName": "Panama",
+    "jaName": "パナマ",
+    "jaKana": "ぱなま",
+    "neighbors": ["CRI", "COL"]
+  },
+  "PNG": {
+    "enName": "Papua New Guinea",
+    "jaName": "パプアニューギニア",
+    "jaKana": "ぱぷあにゅーぎにあ",
+    "neighbors": ["IDN"]
+  },
+  "PRY": {
+    "enName": "Paraguay",
+    "jaName": "パラグアイ",
+    "jaKana": "ぱらぐあい",
+    "neighbors": ["BOL", "BRA", "ARG"]
+  },
+  "PER": {
+    "enName": "Peru",
+    "jaName": "ペルー",
+    "jaKana": "ぺるー",
+    "neighbors": ["ECU", "COL", "BRA", "BOL", "CHL"]
+  },
+  "PHL": {
+    "enName": "Philippines",
+    "jaName": "フィリピン",
+    "jaKana": "ふぃりぴん",
+    "neighbors": []
+  },
+  "POL": {
+    "enName": "Poland",
+    "jaName": "ポーランド",
+    "jaKana": "ぽーらんど",
+    "neighbors": ["DEU", "CZE", "SVK", "UKR", "BLR", "LTU", "RUS"]
+  },
+  "PRT": {
+    "enName": "Portugal",
+    "jaName": "ポルトガル",
+    "jaKana": "ぽるとがる",
+    "neighbors": ["ESP"]
+  },
+  "QAT": {
+    "enName": "Qatar",
+    "jaName": "カタール",
+    "jaKana": "かたーる",
+    "neighbors": ["SAU"]
+  },
+  "ROU": {
+    "enName": "Romania",
+    "jaName": "ルーマニア",
+    "jaKana": "るーまにあ",
+    "neighbors": ["UKR", "MDA", "BGR", "SRB", "HUN"]
+  },
+  "RUS": {
+    "enName": "Russia",
+    "jaName": "ロシア",
+    "jaKana": "ろしあ",
+    "neighbors": ["NOR", "FIN", "EST", "LVA", "LTU", "POL", "BLR", "UKR", "GEO", "AZE", "KAZ", "CHN", "MNG", "PRK"]
+  },
+  "RWA": {
+    "enName": "Rwanda",
+    "jaName": "ルワンダ",
+    "jaKana": "るわんだ",
+    "neighbors": ["UGA", "TZA", "BDI", "COD"]
+  },
+  "KNA": {
+    "enName": "Saint Kitts and Nevis",
+    "jaName": "セントクリストファー・ネイビス",
+    "jaKana": "せんとくりすとふぁー・ねいびす",
+    "neighbors": []
+  },
+  "LCA": {
+    "enName": "Saint Lucia",
+    "jaName": "セントルシア",
+    "jaKana": "せんとるしあ",
+    "neighbors": []
+  },
+  "VCT": {
+    "enName": "Saint Vincent and the Grenadines",
+    "jaName": "セントビンセント・グレナディーン",
+    "jaKana": "せんとびんせんと・ぐれなでぃーん",
+    "neighbors": []
+  },
+  "WSM": {
+    "enName": "Samoa",
+    "jaName": "サモア",
+    "jaKana": "さもあ",
+    "neighbors": []
+  },
+  "SMR": {
+    "enName": "San Marino",
+    "jaName": "サンマリノ",
+    "jaKana": "さんまりの",
+    "neighbors": ["ITA"]
+  },
+  "STP": {
+    "enName": "Sao Tome and Principe",
+    "jaName": "サントメ・プリンシペ",
+    "jaKana": "さんとめ・ぷりんしぺ",
+    "neighbors": []
+  },
+  "SAU": {
+    "enName": "Saudi Arabia",
+    "jaName": "サウジアラビア",
+    "jaKana": "さうじあらびあ",
+    "neighbors": ["JOR", "IRQ", "KWT", "QAT", "ARE", "OMN", "YEM"]
+  },
+  "SEN": {
+    "enName": "Senegal",
+    "jaName": "セネガル",
+    "jaKana": "せねがる",
+    "neighbors": ["MRT", "MLI", "GIN", "GNB", "GMB"]
+  },
+  "SRB": {
+    "enName": "Serbia",
+    "jaName": "セルビア",
+    "jaKana": "せるびあ",
+    "neighbors": ["HUN", "ROU", "BGR", "MKD", "XKX", "MNE", "BIH", "HRV"]
+  },
+  "SYC": {
+    "enName": "Seychelles",
+    "jaName": "セーシェル",
+    "jaKana": "せーしぇる",
+    "neighbors": []
+  },
+  "SLE": {
+    "enName": "Sierra Leone",
+    "jaName": "シエラレオネ",
+    "jaKana": "しえられおね",
+    "neighbors": ["GIN", "LBR"]
+  },
+  "SGP": {
+    "enName": "Singapore",
+    "jaName": "シンガポール",
+    "jaKana": "しんがぽーる",
+    "neighbors": []
+  },
+  "SVK": {
+    "enName": "Slovakia",
+    "jaName": "スロバキア",
+    "jaKana": "すろばきあ",
+    "neighbors": ["POL", "UKR", "HUN", "AUT", "CZE"]
+  },
+  "SVN": {
+    "enName": "Slovenia",
+    "jaName": "スロベニア",
+    "jaKana": "すろべにあ",
+    "neighbors": ["ITA", "AUT", "HUN", "HRV"]
+  },
+  "SLB": {
+    "enName": "Solomon Islands",
+    "jaName": "ソロモン諸島",
+    "jaKana": "そろもんしょとう",
+    "neighbors": []
+  },
+  "SOM": {
+    "enName": "Somalia",
+    "jaName": "ソマリア",
+    "jaKana": "そまりあ",
+    "neighbors": ["ETH", "DJI", "KEN"]
+  },
+  "ZAF": {
+    "enName": "South Africa",
+    "jaName": "南アフリカ",
+    "jaKana": "みなみあふりか",
+    "neighbors": ["NAM", "BWA", "ZWE", "MOZ", "SWZ", "LSO"]
+  },
+  "KOR": {
+    "enName": "South Korea",
+    "jaName": "韓国",
+    "jaKana": "かんこく",
+    "neighbors": ["PRK"]
+  },
+  "SSD": {
+    "enName": "South Sudan",
+    "jaName": "南スーダン",
+    "jaKana": "みなみすーだん",
+    "neighbors": ["SDN", "ETH", "KEN", "UGA", "COD", "CAF"]
+  },
+  "ESP": {
+    "enName": "Spain",
+    "jaName": "スペイン",
+    "jaKana": "すぺいん",
+    "neighbors": ["FRA", "AND", "PRT", "MAR"]
+  },
+  "LKA": {
+    "enName": "Sri Lanka",
+    "jaName": "スリランカ",
+    "jaKana": "すりらんか",
+    "neighbors": []
+  },
+  "SDN": {
+    "enName": "Sudan",
+    "jaName": "スーダン",
+    "jaKana": "すーだん",
+    "neighbors": ["EGY", "LBY", "TCD", "CAF", "SSD", "ETH", "ERI"]
+  },
+  "SUR": {
+    "enName": "Suriname",
+    "jaName": "スリナム",
+    "jaKana": "すりなむ",
+    "neighbors": ["GUY", "BRA", "FRA"]
+  },
+  "SWE": {
+    "enName": "Sweden",
+    "jaName": "スウェーデン",
+    "jaKana": "すうぇーでん",
+    "neighbors": ["NOR", "FIN"]
+  },
+  "CHE": {
+    "enName": "Switzerland",
+    "jaName": "スイス",
+    "jaKana": "すいす",
+    "neighbors": ["FRA", "DEU", "AUT", "LIE", "ITA"]
+  },
+  "SYR": {
+    "enName": "Syria",
+    "jaName": "シリア",
+    "jaKana": "しりあ",
+    "neighbors": ["TUR", "IRQ", "JOR", "LBN", "ISR"]
+  },
+  "TWN": {
+    "enName": "Taiwan",
+    "jaName": "台湾",
+    "jaKana": "たいわん",
+    "neighbors": []
+  },
+  "TJK": {
+    "enName": "Tajikistan",
+    "jaName": "タジキスタン",
+    "jaKana": "たじきすたん",
+    "neighbors": ["KGZ", "CHN", "AFG", "UZB"]
+  },
+  "TZA": {
+    "enName": "Tanzania",
+    "jaName": "タンザニア",
+    "jaKana": "たんざにあ",
+    "neighbors": ["KEN", "UGA", "RWA", "BDI", "COD", "ZMB", "MWI", "MOZ"]
+  },
+  "THA": {
+    "enName": "Thailand",
+    "jaName": "タイ",
+    "jaKana": "たい",
+    "neighbors": ["MMR", "LAO", "KHM", "MYS"]
+  },
+  "TLS": {
+    "enName": "East Timor",
+    "jaName": "東ティモール",
+    "jaKana": "ひがしてぃもーる",
+    "neighbors": ["IDN"]
+  },
+  "TGO": {
+    "enName": "Togo",
+    "jaName": "トーゴ",
+    "jaKana": "とーご",
+    "neighbors": ["GHA", "BFA", "BEN"]
+  },
+  "TON": {
+    "enName": "Tonga",
+    "jaName": "トンガ",
+    "jaKana": "とんが",
+    "neighbors": []
+  },
+  "TTO": {
+    "enName": "Trinidad and Tobago",
+    "jaName": "トリニダード・トバゴ",
+    "jaKana": "とりにだーど・とばご",
+    "neighbors": []
+  },
+  "TUN": {
+    "enName": "Tunisia",
+    "jaName": "チュニジア",
+    "jaKana": "ちゅにじあ",
+    "neighbors": ["DZA", "LBY"]
+  },
+  "TUR": {
+    "enName": "Turkey",
+    "jaName": "トルコ",
+    "jaKana": "とるこ",
+    "neighbors": ["GRC", "BGR", "GEO", "ARM", "AZE", "IRN", "IRQ", "SYR"]
+  },
+  "TKM": {
+    "enName": "Turkmenistan",
+    "jaName": "トルクメニスタン",
+    "jaKana": "とるくめにすたん",
+    "neighbors": ["KAZ", "UZB", "AFG", "IRN"]
+  },
+  "TUV": {
+    "enName": "Tuvalu",
+    "jaName": "ツバル",
+    "jaKana": "つばる",
+    "neighbors": []
+  },
+  "UGA": {
+    "enName": "Uganda",
+    "jaName": "ウガンダ",
+    "jaKana": "うがんだ",
+    "neighbors": ["SSD", "KEN", "TZA", "RWA", "COD"]
+  },
+  "UKR": {
+    "enName": "Ukraine",
+    "jaName": "ウクライナ",
+    "jaKana": "うくらいな",
+    "neighbors": ["BLR", "RUS", "MDA", "ROU", "HUN", "SVK", "POL"]
+  },
+  "ARE": {
+    "enName": "United Arab Emirates",
+    "jaName": "アラブ首長国連邦",
+    "jaKana": "あらぶしゅちょうこくれんぽう",
+    "neighbors": ["SAU", "OMN"]
+  },
+  "GBR": {
+    "enName": "United Kingdom",
+    "jaName": "イギリス",
+    "jaKana": "いぎりす",
+    "neighbors": ["IRL"]
+  },
+  "USA": {
+    "enName": "United States",
+    "jaName": "アメリカ合衆国",
+    "jaKana": "あめりかがっしゅうこく",
+    "neighbors": ["CAN", "MEX"]
+  },
+  "URY": {
+    "enName": "Uruguay",
+    "jaName": "ウルグアイ",
+    "jaKana": "うるぐあい",
+    "neighbors": ["BRA", "ARG"]
+  },
+  "UZB": {
+    "enName": "Uzbekistan",
+    "jaName": "ウズベキスタン",
+    "jaKana": "うずべきすたん",
+    "neighbors": ["KAZ", "KGZ", "TJK", "AFG", "TKM"]
+  },
+  "VUT": {
+    "enName": "Vanuatu",
+    "jaName": "バヌアツ",
+    "jaKana": "ばぬあつ",
+    "neighbors": []
+  },
+  "VAT": {
+    "enName": "Vatican City",
+    "jaName": "バチカン",
+    "jaKana": "ばちかん",
+    "neighbors": ["ITA"]
+  },
+  "VEN": {
+    "enName": "Venezuela",
+    "jaName": "ベネズエラ",
+    "jaKana": "べねずえら",
+    "neighbors": ["COL", "BRA", "GUY"]
+  },
+  "VNM": {
+    "enName": "Vietnam",
+    "jaName": "ベトナム",
+    "jaKana": "べとなむ",
+    "neighbors": ["CHN", "LAO", "KHM"]
+  },
+  "ESH": {
+    "enName": "Western Sahara",
+    "jaName": "西サハラ",
+    "jaKana": "にしさはら",
+    "neighbors": ["MAR", "DZA", "MRT"]
+  },
+  "YEM": {
+    "enName": "Yemen",
+    "jaName": "イエメン",
+    "jaKana": "いえめん",
+    "neighbors": ["SAU", "OMN"]
+  },
+  "ZMB": {
+    "enName": "Zambia",
+    "jaName": "ザンビア",
+    "jaKana": "ざんびあ",
+    "neighbors": ["COD", "TZA", "MWI", "MOZ", "ZWE", "BWA", "NAM", "AGO"]
+  },
+  "ZWE": {
+    "enName": "Zimbabwe",
+    "jaName": "ジンバブエ",
+    "jaKana": "じんばぶえ",
+    "neighbors": ["ZMB", "BWA", "ZAF", "MOZ"]
+  }
+}
