@@ -5,25 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>国境しりとり</title>
     <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="./effect.css">
     <link rel="icon" href="./assets/image/favicon.ico">
 </head>
-<body>
-  <main class="main-container">
-    <header>
-      <div class="main-title">国境しりとり</div>
-      <button id="help-button">?</button>
+<body class="bg-primary leading-[1.6] text-ink">
+  <main class="mx-auto flex h-svh w-full max-w-[760px] flex-col p-4 md:px-6 md:py-5">
+    <header class="flex items-center justify-between gap-3 pt-2 pb-4">
+      <div class="text-[1.6rem] font-bold tracking-[.04em]">国境しりとり</div>
+      <button id="help-button" class="press grid size-10 cursor-pointer place-items-center rounded-full bg-white text-[1.1rem] font-bold hover:scale-110 hover:animate-jolt active:scale-92">?</button>
     </header>
         
-    <div class="chat-container">
-      <div class="chat-log" id="chatLog">
+    <div class="flex min-h-0 flex-1 flex-col">
+      <div class="scrollbar-none flex flex-1 flex-col gap-2.5 overflow-y-auto pt-2 pb-5" id="chatLog">
           <!-- CPU初期メッセージ -->
       </div>
             
       <div class="input-area">
-        <input type="text" class="user-input" id="userInput" placeholder="メッセージを入力..." spellcheck="false">
-        <button class="send-button" id="sendButton">
-          <svg class="icon" viewBox="0 0 24 24">
+        <input type="text" class="min-w-0 flex-1 bg-transparent px-3.5 py-2.5 outline-none placeholder:text-current/55" id="userInput" placeholder="メッセージを入力..." spellcheck="false">
+        <button class="press grid size-11 shrink-0 cursor-pointer place-items-center rounded-full bg-ink text-white hover:scale-108 hover:-rotate-10 active:scale-90 active:rotate-0" id="sendButton">
+          <svg class="size-5 fill-current" viewBox="0 0 24 24">
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
           </svg>
         </button>
@@ -36,46 +35,49 @@
   </main>
     
     <!-- ヘルプモーダル -->
-  <div class="modal" id="helpModal">
+  <div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div id="modal-cover"></div>
     <div class="modal-content">
-      <div class="modal-title">国境しりとりについて</div>
-      <div class="modal-text">
-        <p>
-          <strong>国境しりとり</strong>は、プレイヤーとコンピュータが交互に隣接する国の名前を言い合うゲームです。
-        </p>
-        <br>
-        <p>
-          【ルール】
-          <br>・使用する国のリストはISO 3166に基づきます
-          <br>・本国と同じ扱いの飛び地や海外県は本国の一部とみなします（例：フランス領ギアナがあるため、フランスとブラジルは隣接）。海外領土（例：グリーンランド）は含めません
-          <br>・2回連続でミスをするか、言える国がなくなったらゲーム終了です
-        </p>
-        <br>
-        <p>
-          【設定】<br>
+      <div class="mx-auto mt-2.5 h-[5px] w-10 shrink-0 rounded-full bg-ink/15 md:hidden"></div>
+      <button class="absolute top-(--oy) left-(--ox) z-1 hidden size-10 -translate-1/2 cursor-pointer place-items-center rounded-full bg-white text-[1.5rem] text-ink transition-transform duration-450 ease-back hover:rotate-90 md:grid" id="modal-x" aria-label="閉じる">×</button>
+      <div class="scrollbar-none flex-1 overflow-y-auto px-6 pt-4 pb-2 md:mx-auto md:grid md:w-full md:max-w-[1040px] md:grid-cols-[1.1fr_1fr] md:content-start md:gap-18 md:px-14 md:pt-26 md:pb-16">
+        <section class="modal-section mb-6 md:mb-0">
+          <h2 class="mb-3 text-[1.4rem]/[1.3] font-bold md:mb-5 md:text-[length:clamp(2.4rem,5vw,4rem)]/[1.1] md:text-primary" id="modal-title">国境しりとりについて</h2>
+          <p class="text-[.95rem]">
+            <strong>国境しりとり</strong>は、プレイヤーとコンピュータが交互に隣接する国の名前を言い合うゲームです。
+          </p>
+          <h3 class="mt-6 mb-1.5 text-[.78rem] font-bold tracking-[.12em] text-current/55 first:mt-0">ルール</h3>
+          <ul class="rule-list">
+            <li>使用する国のリストはISO 3166に基づきます</li>
+            <li>本国と同じ扱いの飛び地や海外県は本国の一部とみなします（例：フランス領ギアナがあるため、フランスとブラジルは隣接）。海外領土（例：グリーンランド）は含めません</li>
+            <li>2回連続でミスをするか、言える国がなくなったらゲーム終了です</li>
+          </ul>
+        </section>
+        <section class="modal-section mb-6 md:mb-0">
+          <h3 class="mt-6 mb-1.5 text-[.78rem] font-bold tracking-[.12em] text-current/55 first:mt-0">設定</h3>
           <div class="settings-container">
-            <label>
-              ・非国連加盟国を除外
+            <label class="setting-row">
+              <span>非国連加盟国を除外</span>
               <input type="checkbox" class="switch" id="remove-nonmembers">
               <span class="slider"></span>
             </label>
-            <label>
-              ・飛び地による隣接を除外
+            <label class="setting-row">
+              <span>飛び地による隣接を除外</span>
               <input type="checkbox" class="switch" id="remove-enclaves">
               <span class="slider"></span>
             </label>
-            <label>
-              ・島国を除外
+            <label class="setting-row">
+              <span>島国を除外</span>
               <input type="checkbox" class="switch" id="remove-islands">
               <span class="slider"></span>
             </label>
           </div>
-        </p>
-        <p class="small-text">※設定は次ゲームから適用されます</p>
+          <p class="mt-1.5 text-[.8rem] text-current/55">※設定は次ゲームから適用されます</p>
+        </section>
       </div>
-      
-      <button id="close-button">閉じる</button>
+      <div class="shrink-0 px-6 pt-3 pb-[calc(24px+env(safe-area-inset-bottom))] md:hidden">
+        <button id="close-button" class="press w-full cursor-pointer rounded-full bg-ink p-3.5 text-white hover:scale-102 active:scale-97">閉じる</button>
+      </div>
     </div>
   </div>
     <!-- JS -->

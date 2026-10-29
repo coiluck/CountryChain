@@ -1,0 +1,170 @@
+/* モバイルはボトムシート、PCは ? ボタンから円形に広がる全画面 */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  visibility: hidden;
+  /* 閉じるアニメーションの後で隠す */
+  transition: visibility 0s linear .7s;
+  @variant md {
+    transition-delay: .95s;
+  }
+  &.is-open {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+}
+
+#modal-cover {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(from var(--color-ink) r g b / .45);
+  opacity: 0;
+  transition: opacity .5s var(--ease-out);
+  .modal.is-open & {
+    opacity: 1;
+  }
+  /* --ox, --oy は modal.js で設定 */
+  @variant md {
+    background-color: var(--color-ink);
+    opacity: 1;
+    clip-path: circle(0px at var(--ox, 100%) var(--oy, 0%));
+    transition: clip-path .8s var(--ease-in-out) .15s;
+    .modal.is-open & {
+      clip-path: circle(150% at var(--ox, 100%) var(--oy, 0%));
+      transition-delay: 0s;
+    }
+  }
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(640px, 100%);
+  max-height: 88svh;
+  border-radius: 28px 28px 0 0;
+  background-color: var(--color-white);
+  overflow: hidden;
+  transform: translate(-50%, 100%);
+  transition: transform .6s var(--ease-sheet);
+  .modal.is-open & {
+    transform: translate(-50%, 0);
+  }
+  @variant md {
+    inset: 0;
+    width: auto;
+    max-height: none;
+    border-radius: 0;
+    background: none;
+    color: var(--color-white);
+    opacity: 0;
+    transform: none;
+    transition: opacity .3s var(--ease-out);
+    .modal.is-open & {
+      opacity: 1;
+      transform: none;
+      transition-delay: .35s;
+    }
+  }
+}
+
+.modal-section {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .4s var(--ease-out), transform .6s var(--ease-out);
+  .modal.is-open & {
+    opacity: 1;
+    transform: none;
+    transition-delay: .18s;
+    @variant md {
+      transition-delay: .45s;
+    }
+  }
+  .modal.is-open & + & {
+    transition-delay: .25s;
+    @variant md {
+      transition-delay: .52s;
+    }
+  }
+}
+
+.rule-list li {
+  position: relative;
+  margin: 8px 0;
+  padding-left: 18px;
+  font-size: .92rem;
+  @variant md {
+    font-size: 1rem;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: .7em;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+  }
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgb(from currentColor r g b / .1);
+  cursor: pointer;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.switch {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.switch + .slider {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 28px;
+  border-radius: 999px;
+  background-color: rgb(from currentColor r g b / .15);
+  transition: background-color .35s var(--ease-out);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background-color: var(--color-white);
+    box-shadow: 0 1px 3px rgb(from var(--color-ink) r g b / .2);
+    transition: transform .5s var(--ease-back), width .25s var(--ease-out);
+  }
+}
+.switch:checked + .slider {
+  background-color: var(--color-primary);
+  &::before {
+    transform: translateX(20px);
+  }
+}
+/* 押している間はノブが伸びる */
+.setting-row:active .slider::before {
+  width: 27px;
+}
+.setting-row:active .switch:checked + .slider::before {
+  transform: translateX(15px);
+}
+.switch:focus-visible + .slider {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -43,7 +43,7 @@ export function addMessage(text: string, sender: Sender): void {
 
 export function addPlayAgainButton(onClick: () => void): void {
   const playAgainButton = document.createElement('button');
-  playAgainButton.className = 'play-again-button';
+  playAgainButton.className = 'press cursor-pointer rounded-full bg-ink px-7 py-3 text-white hover:scale-106 active:scale-94';
   playAgainButton.textContent = 'もう一度プレイ';
   const messageDiv = appendMessage(playAgainButton, 'system');
   playAgainButton.onclick = () => {
@@ -67,23 +67,27 @@ export function showSuggestions(countries: readonly Country[]): void {
       const item = document.createElement('div');
       item.className = 'suggestion-item';
       item.dataset.value = country.jaName;
-      item.textContent = `${country.jaName}（${country.enName}）`;
+      item.textContent = country.jaName;
+      const en = document.createElement('span');
+      en.className = 'en';
+      en.textContent = country.enName;
+      item.append(en);
       // クリックされたら入力して候補を非表示
       item.onclick = () => selectSuggestion(item);
       return item;
     }),
   );
   activeIndex = -1;
-  suggestionsContainer.style.display = 'block';
+  suggestionsContainer.classList.add('is-open');
 }
 
 export function hideSuggestions(): void {
-  suggestionsContainer.style.display = 'none';
+  suggestionsContainer.classList.remove('is-open');
   activeIndex = -1;
 }
 
 function isSuggestionsOpen(): boolean {
-  return suggestionsContainer.style.display === 'block';
+  return suggestionsContainer.classList.contains('is-open');
 }
 
 function selectSuggestion(item: HTMLElement): void {
