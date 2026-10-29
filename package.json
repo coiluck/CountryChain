@@ -6,14 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "@types/d3": "^7.4.3",
     "tailwindcss": "^4.3.3",
     "typescript": "7.0.2",
-    "vite": "^8.3.5"
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
   },
   "packageManager": "pnpm@12.6.0",
   "dependencies": {
