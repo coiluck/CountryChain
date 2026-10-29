@@ -27,6 +27,12 @@
   font-style: normal;
 }
 
+@layer base {
+  button {
+    user-select: none;
+  }
+}
+
 @utility scrollbar-none {
   scrollbar-width: none;
   &::-webkit-scrollbar {
