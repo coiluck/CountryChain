@@ -1,4 +1,5 @@
 import type { Country } from './game.ts';
+import { renderMap } from './d3.ts';
 
 export type Sender = 'system' | 'cpu' | 'user';
 
@@ -21,7 +22,7 @@ export function clearChat(): void {
 }
 
 // メッセージ枠を作ってログに追加
-function appendMessage(content: string | Node, sender: Sender): HTMLDivElement {
+function appendMessage(content: string | Node, sender: Sender | 'map'): HTMLDivElement {
   const messageDiv = document.createElement('div');
   messageDiv.className = `message ${sender}-message`;
 
@@ -39,6 +40,14 @@ function appendMessage(content: string | Node, sender: Sender): HTMLDivElement {
 
 export function addMessage(text: string, sender: Sender): void {
   appendMessage(text, sender);
+}
+
+// 今の国を中心にした地図を表示
+export function addMap(used: ReadonlySet<string>, current: string): void {
+  const map = document.createElement('div');
+  map.className = 'country-map aspect-2/1 w-md max-w-full overflow-hidden rounded-xl';
+  appendMessage(map, 'map');
+  renderMap(map, used, current);
 }
 
 export function addPlayAgainButton(onClick: () => void): void {

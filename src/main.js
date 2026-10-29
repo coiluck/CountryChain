@@ -1,6 +1,6 @@
 import './modal.js';
 import { MAX_MISTAKES, allCountries, cpuMove, filterCountries, isGameOver, playerMove, startGame, suggestCountries } from './game.ts';
-import { addMessage, addPlayAgainButton, bindInputEvents, clearChat, showSuggestions } from './ui.ts';
+import { addMap, addMessage, addPlayAgainButton, bindInputEvents, clearChat, showSuggestions } from './ui.ts';
 import { readSettings, setupSettingsStorage } from './settings.ts';
 
 let countries;
@@ -29,6 +29,7 @@ function computerTurn() {
   }
   state = next;
   addMessage(`コンピュータ: ${nameOf(state.current)}`, 'cpu');
+  addMap(state.used, state.current);
   isPlayerTurn = true;
 }
 
@@ -38,6 +39,7 @@ function playerTurn(answer) {
   const move = playerMove(countries, state, answer);
   if (move.result === 'ok') {
     state = move.state;
+    addMap(state.used, state.current);
     isPlayerTurn = false;
     setTimeout(computerTurn, 1000);
     return;

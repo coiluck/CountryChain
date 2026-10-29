@@ -57,7 +57,8 @@
     --dx: 10px;
     justify-content: flex-end;
   }
-  .system-message {
+  .system-message,
+  .map-message {
     justify-content: center;
   }
   .message-content {
@@ -72,6 +73,9 @@
   .cpu-message .message-content {
     background-color: var(--color-white);
     border-bottom-left-radius: 6px;
+  }
+  .map-message .message-content {
+    background-color: var(--color-white);
   }
   .user-message .message-content {
     background-color: var(--color-ink);
@@ -89,6 +93,26 @@
     &:has(> button) {
       padding: 4px 0;
       background: none;
+    }
+  }
+
+  /* 地図 */
+  .country-map {
+    path {
+      fill: rgb(from currentColor r g b / .12);
+      stroke: rgb(from currentColor r g b / .3);
+      stroke-width: .5px;
+      /* ズームしても線の太さを変えない */
+      vector-effect: non-scaling-stroke;
+    }
+    circle {
+      fill: rgb(from currentColor r g b / .3);
+    }
+    .is-used {
+      fill: rgb(from currentColor r g b / .45);
+    }
+    .is-current {
+      fill: var(--color-primary);
     }
   }
 
