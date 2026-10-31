@@ -6,9 +6,6 @@ export type Strategy = {
   replies: { reply: string; next: Strategy }[]; // 相手の返し → 次の自分の手。これが空なら相手の負け
 };
 
-// 自分が言う回数の上限。これ以上深くするとブラウザが固まる（10 で最悪 0.6 秒ほど）
-const SEARCH_DEPTH = 8;
-
 const getLegalMoves = (countries: CountryMap, currentCode: string, used: ReadonlySet<string>) => {
   return (countries[currentCode]?.neighbors ?? []).filter(country => !used.has(country));
 }
@@ -60,15 +57,21 @@ export function isDecidedEarly(countries: CountryMap, start: string): boolean {
 }
 
 // current の次に言う手の候補。詰ませる手があればそれだけ、なければ相手に詰まされない手、それもなければすべての手
-export function bestMoves(countries: CountryMap, current: string, used: ReadonlySet<string>): string[] {
+// depth は自分・相手それぞれが言う回数の上限
+export function bestMoves(
+  countries: CountryMap,
+  current: string,
+  used: ReadonlySet<string>,
+  depth: number,
+): string[] {
   const work = new Set(used);
-  const strategy = searchCombo(countries, current, work, SEARCH_DEPTH);
+  const strategy = searchCombo(countries, current, work, depth);
   if (strategy !== null) return [strategy.play];
 
   const moves = getLegalMoves(countries, current, work);
   const safeMoves = moves.filter((myMove) => {
     work.add(myMove);
-    const enemyStrategy = searchCombo(countries, myMove, work, SEARCH_DEPTH);
+    const enemyStrategy = searchCombo(countries, myMove, work, depth);
     work.delete(myMove);
     return enemyStrategy === null;
   });
@@ -76,13 +79,14 @@ export function bestMoves(countries: CountryMap, current: string, used: Readonly
 }
 
 // history（言った順の国）の中で、history[0] の次に言う側が最初に詰ませられるようになった位置とその手順
-// CPU側の番（0, 2, 4, ...）だけを調べる
+// CPU側の番（0, 2, 4, ...）だけを調べる。depth は自分が言う回数の上限
 export function findCheckmate(
   countries: CountryMap,
   history: readonly string[],
+  depth: number,
 ): { index: number; strategy: Strategy } | null {
   for (let index = 0; index < history.length; index += 2) {
-    const strategy = searchCombo(countries, history[index]!, new Set(history.slice(0, index + 1)), SEARCH_DEPTH);
+    const strategy = searchCombo(countries, history[index]!, new Set(history.slice(0, index + 1)), depth);
     if (strategy !== null) return { index, strategy };
   }
   return null;

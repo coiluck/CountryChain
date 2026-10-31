@@ -1,5 +1,5 @@
 import './modal.js';
-import { MAX_MISTAKES, allCountries, cpuMove, filterCountries, isGameOver, playerMove, startGame, suggestCountries } from './game.ts';
+import { MAX_MISTAKES, SEARCH_DEPTHS, allCountries, cpuMove, filterCountries, isGameOver, playerMove, startGame, suggestCountries } from './game.ts';
 import { findCheckmate } from './search.ts';
 import { addMap, addMessage, addPlayAgainButton, addReview, bindInputEvents, clearChat, showSuggestions } from './ui.ts';
 import { readSettings, setupSettingsStorage } from './settings.ts';
@@ -61,7 +61,7 @@ function playerTurn(answer) {
 }
 
 function endGame() {
-  if (settings.mode === 'hard') showReview();
+  if (settings.mode === 'extreme') showReview();
   addPlayAgainButton(startNewGame);
 }
 
@@ -69,7 +69,7 @@ function endGame() {
 function showReview() {
   // used は言った順に並んでいる
   const history = [...state.used];
-  const checkmate = findCheckmate(countries, history);
+  const checkmate = findCheckmate(countries, history, SEARCH_DEPTHS.extreme);
   if (checkmate === null) {
     addMessage('振り返り：最後まで詰みにはなっていませんでした。', 'system');
     return;

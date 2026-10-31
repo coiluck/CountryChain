@@ -52,28 +52,35 @@ describe('bestMoves', () => {
   it('相手を詰ませる手があればその手だけを返す', () => {
     // A を言えば相手は言えない。B だと X で返される
     const countries = graph([['S', 'A'], ['S', 'B'], ['B', 'X']]);
-    expect(bestMoves(countries, 'S', new Set(['S']))).toEqual(['A']);
+    expect(bestMoves(countries, 'S', new Set(['S']), 8)).toEqual(['A']);
   });
 
   it('詰ませられなければ相手に詰まされない手を返す', () => {
     // P だと P2 で返されて自分が言えない
     const countries = graph([['S', 'P'], ['P', 'P2'], ['S', 'Q'], ...longLine('Q')]);
-    expect(bestMoves(countries, 'S', new Set(['S']))).toEqual(['Q']);
+    expect(bestMoves(countries, 'S', new Set(['S']), 8)).toEqual(['Q']);
   });
 
   it('どの手でも詰まされるならすべての手を返す', () => {
     const countries = graph([['S', 'P'], ['P', 'P2']]);
-    expect(bestMoves(countries, 'S', new Set(['S']))).toEqual(['P']);
+    expect(bestMoves(countries, 'S', new Set(['S']), 8)).toEqual(['P']);
+  });
+
+  it('depth より先の詰みは見つけない', () => {
+    // A → B → C で相手が言えなくなる（自分が 2 回言う）。D は長く続く
+    const countries = graph([...line(['S', 'A', 'B', 'C']), ['S', 'D'], ...longLine('D')]);
+    expect(bestMoves(countries, 'S', new Set(['S']), 1)).toEqual(['A', 'D']);
+    expect(bestMoves(countries, 'S', new Set(['S']), 2)).toEqual(['A']);
   });
 
   it('使用済みの国は返さない', () => {
     const countries = graph([['S', 'A'], ['S', 'B'], ['B', 'X']]);
-    expect(bestMoves(countries, 'S', new Set(['S', 'A']))).toEqual(['B']);
+    expect(bestMoves(countries, 'S', new Set(['S', 'A']), 8)).toEqual(['B']);
   });
 
   it('使用済みの国の集合を書き換えない', () => {
     const used = new Set(['S']);
-    bestMoves(graph([['S', 'P'], ['P', 'P2']]), 'S', used);
+    bestMoves(graph([['S', 'P'], ['P', 'P2']]), 'S', used, 8);
     expect([...used]).toEqual(['S']);
   });
 });
@@ -83,19 +90,19 @@ describe('findCheckmate', () => {
   const countries = graph([['S', 'T'], ['T', 'U'], ['U', 'U1'], ['T', 'V'], ...longLine('V')]);
 
   it('最初から詰んでいれば 0', () => {
-    const result = findCheckmate(graph(line(['A', 'B', 'C', 'D'])), ['A', 'B', 'C', 'D']);
+    const result = findCheckmate(graph(line(['A', 'B', 'C', 'D'])), ['A', 'B', 'C', 'D'], 8);
     expect(result?.index).toBe(0);
     expect(result?.strategy.play).toBe('B');
   });
 
   it('詰みになった答えの位置と、何を答えても詰む手順を返す', () => {
-    expect(findCheckmate(countries, ['S', 'T', 'U', 'U1'])).toEqual({
+    expect(findCheckmate(countries, ['S', 'T', 'U', 'U1'], 8)).toEqual({
       index: 2,
       strategy: { play: 'U1', replies: [] },
     });
   });
 
   it('詰みにならなければ null', () => {
-    expect(findCheckmate(countries, ['S', 'T', 'V', 'V0'])).toBeNull();
+    expect(findCheckmate(countries, ['S', 'T', 'V', 'V0'], 8)).toBeNull();
   });
 });

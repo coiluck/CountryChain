@@ -12,7 +12,15 @@ export type Country = {
 // ISO 3166-1 alpha-3 コード -> 国
 export type CountryMap = Readonly<Record<string, Country>>;
 
-export type Mode = 'normal' | 'hard';
+// casual: ランダム、advanced: 1手先読み、extreme: 人間にはクリアできない
+export type Mode = 'casual' | 'advanced' | 'extreme';
+
+// 探索するモードの深さ（自分が言う回数の上限）
+// extreme はこれ以上深くするとブラウザが固まる（10 で最悪 0.6 秒ほど）
+export const SEARCH_DEPTHS: Record<Exclude<Mode, 'casual'>, number> = {
+  advanced: 1,
+  extreme: 8,
+};
 
 export type Settings = {
   removeNonmembers: boolean;
@@ -130,10 +138,12 @@ function moveTo(state: GameState, code: string): GameState {
 export function cpuMove(
   countries: CountryMap,
   state: GameState,
-  mode: Mode = 'normal',
+  mode: Mode = 'casual',
   random: () => number = Math.random
 ): GameState | null {
-  const moves = mode === 'hard' ? bestMoves(countries, state.current, state.used) : availableNeighbors(countries, state);
+  const moves = mode === 'casual'
+    ? availableNeighbors(countries, state)
+    : bestMoves(countries, state.current, state.used, SEARCH_DEPTHS[mode]);
   const next = pickRandom(moves, random);
   return next === undefined ? null : moveTo(state, next);
 }

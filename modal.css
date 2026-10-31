@@ -168,3 +168,76 @@
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
+
+/* モード選択：選んだモードへ下地がスライドし、その説明だけを表示する */
+.mode-segment {
+  --thumb: var(--color-ink);
+  --thumb-ink: var(--color-white);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 4px;
+  border-radius: 999px;
+  background-color: rgb(from currentColor r g b / .08);
+  @variant md {
+    --thumb: var(--color-primary);
+    --thumb-ink: var(--color-ink);
+  }
+  label {
+    position: relative;
+    z-index: 1;
+    padding: 9px 0;
+    border-radius: 999px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: color .3s var(--ease-out);
+    &:has(:checked) {
+      color: var(--thumb-ink);
+    }
+    &:has(:focus-visible) {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+}
+.mode-radio {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.mode-thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / 3);
+  border-radius: 999px;
+  background-color: var(--thumb);
+  transform: translateX(calc(var(--i, 0) * 100%));
+  transition: transform .5s var(--ease-back);
+}
+.mode-desc {
+  display: none;
+  min-height: 3.2em;
+  margin-top: 10px;
+  font-size: .85rem;
+  color: rgb(from currentColor r g b / .7);
+  /* display が切り替わるたびに再生される */
+  animation: mode-desc-in .45s var(--ease-out);
+}
+.mode-select:has([value="advanced"]:checked) .mode-thumb { --i: 1; }
+.mode-select:has([value="extreme"]:checked) .mode-thumb { --i: 2; }
+.mode-select:has([value="casual"]:checked) [data-mode="casual"],
+.mode-select:has([value="advanced"]:checked) [data-mode="advanced"],
+.mode-select:has([value="extreme"]:checked) [data-mode="extreme"] {
+  display: block;
+}
+
+@keyframes mode-desc-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}

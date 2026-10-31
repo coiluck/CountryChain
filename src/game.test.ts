@@ -30,7 +30,7 @@ const countries: CountryMap = {
   JPN: country('Japan', '日本', 'にほん', []),
 };
 
-const noFilter: Settings = { removeNonmembers: false, removeEnclaves: false, removeEarlyDecided: false, mode: 'normal' };
+const noFilter: Settings = { removeNonmembers: false, removeEnclaves: false, removeEarlyDecided: false, mode: 'casual' };
 
 function stateAt(current: string, used: string[] = [current], mistakes = 0): GameState {
   return { current, used: new Set(used), mistakes };
@@ -167,25 +167,26 @@ describe('availableNeighbors', () => {
 
 describe('cpuMove', () => {
   it('まだ使われていない隣接国へ進む', () => {
-    const next = cpuMove(countries, stateAt('FRA', ['FRA', 'ESP']), 'normal', () => 0);
+    const next = cpuMove(countries, stateAt('FRA', ['FRA', 'ESP']), 'casual', () => 0);
     expect(next).toEqual(stateAt('BRA', ['FRA', 'ESP', 'BRA']));
   });
 
   it('ミスの回数はそのまま', () => {
-    expect(cpuMove(countries, stateAt('ESP', ['ESP'], 1), 'normal', () => 0)?.mistakes).toBe(1);
+    expect(cpuMove(countries, stateAt('ESP', ['ESP'], 1), 'casual', () => 0)?.mistakes).toBe(1);
   });
 
   it('言える国がなければ null', () => {
     expect(cpuMove(countries, stateAt('MAR', ['MAR', 'ESP']))).toBeNull();
     expect(cpuMove(countries, stateAt('JPN'))).toBeNull();
-    expect(cpuMove(countries, stateAt('JPN'), 'hard')).toBeNull();
+    expect(cpuMove(countries, stateAt('JPN'), 'extreme')).toBeNull();
   });
 
-  it('ハードモードでは相手を詰ませる手を選ぶ', () => {
+  it('Advanced・Extreme では相手を詰ませる手を選ぶ', () => {
     // フランスの次にブラジルかバチカンを言えば相手は言えないが、スペインだとモロッコで返される
     const state = stateAt('FRA');
-    expect(cpuMove(countries, state, 'normal', () => 0)?.current).toBe('ESP');
-    expect(cpuMove(countries, state, 'hard', () => 0)?.current).toBe('BRA');
+    expect(cpuMove(countries, state, 'casual', () => 0)?.current).toBe('ESP');
+    expect(cpuMove(countries, state, 'advanced', () => 0)?.current).toBe('BRA');
+    expect(cpuMove(countries, state, 'extreme', () => 0)?.current).toBe('BRA');
   });
 });
 
