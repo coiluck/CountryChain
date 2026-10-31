@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./modal.css" layer(components);
+@import "./review.css" layer(components);
 
 /* 変数はここだけ。濃淡は rgb(from ...) で作る */
 @theme {
@@ -81,8 +82,7 @@
     background-color: var(--color-white);
     border-bottom-left-radius: 6px;
   }
-  .map-message .message-content,
-  .review-message .message-content {
+  .map-message .message-content {
     background-color: var(--color-white);
   }
   .user-message .message-content {
@@ -122,60 +122,6 @@
     .is-current {
       fill: var(--color-primary);
     }
-  }
-
-  /* 詰みの手順 */
-  .checkmate-tree {
-    max-height: 360px;
-    overflow-y: auto;
-    scrollbar-width: none;
-    ul {
-      margin-left: 10px;
-      padding-left: 12px;
-      border-left: 2px solid rgb(from currentColor r g b / .12);
-    }
-    li {
-      margin-top: 6px;
-    }
-  }
-  .step-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 4px 22px;
-  }
-  .step {
-    position: relative;
-    padding: 2px 12px;
-    border-radius: 999px;
-    font-size: .85rem;
-    & + &::before {
-      content: '→';
-      position: absolute;
-      left: -18px;
-      color: rgb(from currentColor r g b / .4);
-    }
-    &.is-cpu {
-      background-color: rgb(from var(--color-ink) r g b / .08);
-    }
-    &.is-user {
-      background-color: var(--color-ink);
-      color: var(--color-white);
-      &::before {
-        color: rgb(from var(--color-ink) r g b / .4);
-      }
-    }
-    &.is-end {
-      background-color: var(--color-primary);
-      color: var(--color-white);
-      &::before {
-        color: rgb(from var(--color-ink) r g b / .4);
-      }
-    }
-  }
-  .step-row.is-played .step {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
   }
 
   /* 入力欄 */

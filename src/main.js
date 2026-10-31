@@ -1,7 +1,7 @@
 import './modal.js';
 import { MAX_MISTAKES, allCountries, cpuMove, filterCountries, isGameOver, playerMove, startGame, suggestCountries } from './game.ts';
 import { findCheckmate } from './search.ts';
-import { addCheckmateTree, addMap, addMessage, addPlayAgainButton, bindInputEvents, clearChat, showSuggestions } from './ui.ts';
+import { addMap, addMessage, addPlayAgainButton, addReview, bindInputEvents, clearChat, showSuggestions } from './ui.ts';
 import { readSettings, setupSettingsStorage } from './settings.ts';
 
 let settings;
@@ -74,11 +74,12 @@ function showReview() {
     addMessage('振り返り：最後まで詰みにはなっていませんでした。', 'system');
     return;
   }
-  const when = checkmate.index === 0
-    ? '最初の国が決まった時点で'
-    : `あなたが${nameOf(history[checkmate.index])}と答えた時点で`;
-  addMessage(`振り返り：${when}詰みでした。この後は何を答えてもコンピュータが勝ちます（灰色：コンピュータ、黒：あなた、枠付き：実際の流れ）`, 'system');
-  addCheckmateTree(checkmate.strategy, nameOf, history.slice(checkmate.index + 1));
+  addReview({
+    strategy: checkmate.strategy,
+    played: history.slice(checkmate.index + 1),
+    answer: checkmate.index === 0 ? null : history[checkmate.index],
+    nameOf,
+  });
 }
 
 bindInputEvents({
