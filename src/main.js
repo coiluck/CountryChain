@@ -1,8 +1,10 @@
 import './modal.js';
 import { MAX_MISTAKES, allCountries, cpuMove, filterCountries, isGameOver, playerMove, startGame, suggestCountries } from './game.ts';
-import { addMap, addMessage, addPlayAgainButton, bindInputEvents, clearChat, showSuggestions } from './ui.ts';
+import { findCheckmate } from './search.ts';
+import { addCheckmateTree, addMap, addMessage, addPlayAgainButton, bindInputEvents, clearChat, showSuggestions } from './ui.ts';
 import { readSettings, setupSettingsStorage } from './settings.ts';
 
+let settings;
 let countries;
 let state;
 let isPlayerTurn = false;
@@ -14,17 +16,18 @@ function nameOf(code) {
 // ゲーム開始時
 function startNewGame() {
   clearChat();
-  countries = filterCountries(allCountries, readSettings());
-  state = startGame(countries);
+  settings = readSettings();
+  countries = filterCountries(allCountries, settings);
+  state = startGame(countries, settings);
   addMessage(`ゲームを開始します。最初の国は${nameOf(state.current)}です。`, 'system');
   computerTurn();
 }
 
 function computerTurn() {
-  const next = cpuMove(countries, state);
+  const next = cpuMove(countries, state, settings.mode);
   if (next === null) {
     addMessage('コンピュータが言える国がなくなりました。プレイヤーの勝利です！', 'system');
-    addPlayAgainButton(startNewGame);
+    endGame();
     return;
   }
   state = next;
@@ -51,10 +54,31 @@ function playerTurn(answer) {
   state = move.state;
   if (isGameOver(state)) {
     addMessage(`${reason}${MAX_MISTAKES}回連続で間違えたためゲームオーバーです！`, 'system');
-    addPlayAgainButton(startNewGame);
+    endGame();
   } else {
     addMessage(`${reason}もう一度試してください。`, 'system');
   }
+}
+
+function endGame() {
+  if (settings.mode === 'hard') showReview();
+  addPlayAgainButton(startNewGame);
+}
+
+// どの時点で詰んでいたかを振り返る
+function showReview() {
+  // used は言った順に並んでいる
+  const history = [...state.used];
+  const checkmate = findCheckmate(countries, history);
+  if (checkmate === null) {
+    addMessage('振り返り：最後まで詰みにはなっていませんでした。', 'system');
+    return;
+  }
+  const when = checkmate.index === 0
+    ? '最初の国が決まった時点で'
+    : `あなたが${nameOf(history[checkmate.index])}と答えた時点で`;
+  addMessage(`振り返り：${when}詰みでした。この後は何を答えてもコンピュータが勝ちます（灰色：コンピュータ、黒：あなた、枠付き：実際の流れ）`, 'system');
+  addCheckmateTree(checkmate.strategy, nameOf, history.slice(checkmate.index + 1));
 }
 
 bindInputEvents({

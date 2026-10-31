@@ -51,6 +51,7 @@
             <li>使用する国のリストはISO 3166に基づきます</li>
             <li>本国と同じ扱いの飛び地や海外県は本国の一部とみなします（例：フランス領ギアナがあるため、フランスとブラジルは隣接）。海外領土（例：グリーンランド）は含めません</li>
             <li>2回連続でミスをするか、言える国がなくなったらゲーム終了です</li>
+            <li>ハードモードではコンピュータが先を読んで答え、ゲーム終了後にどこで詰んでいたかを振り返れます</li>
           </ul>
         </section>
         <section class="modal-section mb-6 md:mb-0">
@@ -67,8 +68,13 @@
               <span class="slider"></span>
             </label>
             <label class="setting-row">
-              <span>島国を除外</span>
-              <input type="checkbox" class="switch" id="remove-islands">
+              <span>すぐに勝敗が決まる国から始めない</span>
+              <input type="checkbox" class="switch" id="remove-early-decided">
+              <span class="slider"></span>
+            </label>
+            <label class="setting-row">
+              <span>ハードモード</span>
+              <input type="checkbox" class="switch" id="hard-mode">
               <span class="slider"></span>
             </label>
           </div>

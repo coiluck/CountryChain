@@ -1,4 +1,5 @@
 import countryBorder from './data/country-border.json' with { type: 'json' };
+import { bestMoves, isDecidedEarly } from './search.ts';
 
 export type Country = {
   enName: string;
@@ -11,10 +12,14 @@ export type Country = {
 // ISO 3166-1 alpha-3 コード -> 国
 export type CountryMap = Readonly<Record<string, Country>>;
 
+export type Mode = 'normal' | 'hard';
+
 export type Settings = {
   removeNonmembers: boolean;
   removeEnclaves: boolean;
-  removeIslands: boolean;
+  // 3手以内に勝敗が決まる国を最初の国にしない
+  removeEarlyDecided: boolean;
+  mode: Mode;
 };
 
 export type GameState = {
@@ -69,10 +74,6 @@ export function filterCountries(data: CountryMap, settings: Settings): CountryMa
   if (settings.removeEnclaves) {
     entries = excludeNeighbors(entries, isEnclaveBorder);
   }
-  // 島国 = 隣接国がない国
-  if (settings.removeIslands) {
-    entries = entries.filter(([, country]) => country.neighbors.length > 0);
-  }
   return Object.fromEntries(entries);
 }
 
@@ -103,9 +104,16 @@ export function pickRandom<T>(items: readonly T[], random: () => number = Math.r
   return items[Math.floor(random() * items.length)];
 }
 
-export function startGame(countries: CountryMap, random: () => number = Math.random): GameState {
-  const first = pickRandom(Object.keys(countries), random);
-  if (first === undefined) throw new Error('国データが空です');
+export function startGame(
+  countries: CountryMap,
+  settings: Settings,
+  random: () => number = Math.random,
+): GameState {
+  const candidates = Object.keys(countries).filter(
+    (code) => !settings.removeEarlyDecided || !isDecidedEarly(countries, code),
+  );
+  const first = pickRandom(candidates, random);
+  if (first === undefined) throw new Error('最初の国にできる国がありません');
   return { current: first, used: new Set([first]), mistakes: 0 };
 }
 
@@ -122,9 +130,11 @@ function moveTo(state: GameState, code: string): GameState {
 export function cpuMove(
   countries: CountryMap,
   state: GameState,
+  mode: Mode = 'normal',
   random: () => number = Math.random
 ): GameState | null {
-  const next = pickRandom(availableNeighbors(countries, state), random);
+  const moves = mode === 'hard' ? bestMoves(countries, state.current, state.used) : availableNeighbors(countries, state);
+  const next = pickRandom(moves, random);
   return next === undefined ? null : moveTo(state, next);
 }
 

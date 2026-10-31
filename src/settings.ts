@@ -5,7 +5,8 @@ import { getElement } from './ui.ts';
 const SETTING_IDS = {
   removeNonmembers: 'remove-nonmembers',
   removeEnclaves: 'remove-enclaves',
-  removeIslands: 'remove-islands',
+  removeEarlyDecided: 'remove-early-decided',
+  mode: 'hard-mode',
 } as const satisfies Record<keyof Settings, string>;
 
 function isChecked(id: string): boolean {
@@ -16,7 +17,8 @@ export function readSettings(): Settings {
   return {
     removeNonmembers: isChecked(SETTING_IDS.removeNonmembers),
     removeEnclaves: isChecked(SETTING_IDS.removeEnclaves),
-    removeIslands: isChecked(SETTING_IDS.removeIslands),
+    removeEarlyDecided: isChecked(SETTING_IDS.removeEarlyDecided),
+    mode: isChecked(SETTING_IDS.mode) ? 'hard' : 'normal',
   };
 }
 

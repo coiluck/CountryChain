@@ -13,6 +13,7 @@ import {
   type Country,
   type CountryMap,
   type GameState,
+  type Settings,
 } from './game.ts';
 
 function country(enName: string, jaName: string, jaKana: string, neighbors: string[]): Country {
@@ -29,7 +30,7 @@ const countries: CountryMap = {
   JPN: country('Japan', '日本', 'にほん', []),
 };
 
-const noFilter = { removeNonmembers: false, removeEnclaves: false, removeIslands: false };
+const noFilter: Settings = { removeNonmembers: false, removeEnclaves: false, removeEarlyDecided: false, mode: 'normal' };
 
 function stateAt(current: string, used: string[] = [current], mistakes = 0): GameState {
   return { current, used: new Set(used), mistakes };
@@ -73,19 +74,8 @@ describe('filterCountries', () => {
     expect(result.BRA?.neighbors).toEqual([]);
   });
 
-  it('島国（隣接国がない国）を除外する', () => {
-    const result = filterCountries(countries, { ...noFilter, removeIslands: true });
-    expect(result).not.toHaveProperty('JPN');
-    expect(result).toHaveProperty('FRA');
-  });
-
-  it('飛び地の除外で隣接国がなくなった国も島国として除外する', () => {
-    const result = filterCountries(countries, { removeNonmembers: false, removeEnclaves: true, removeIslands: true });
-    expect(Object.keys(result).sort()).toEqual(['ESP', 'FRA', 'VAT']);
-  });
-
   it('元のデータを書き換えない', () => {
-    filterCountries(countries, { removeNonmembers: true, removeEnclaves: true, removeIslands: true });
+    filterCountries(countries, { ...noFilter, removeNonmembers: true, removeEnclaves: true });
     expect(countries.FRA?.neighbors).toEqual(['ESP', 'BRA', 'VAT']);
     expect(countries).toHaveProperty('JPN');
   });
@@ -136,12 +126,32 @@ describe('pickRandom', () => {
 
 describe('startGame', () => {
   it('最初の国を使用済みにして始める', () => {
-    const state = startGame(countries, () => 0);
+    const state = startGame(countries, noFilter, () => 0);
     expect(state).toEqual(stateAt('FRA'));
   });
 
   it('国データが空なら例外を投げる', () => {
-    expect(() => startGame({})).toThrow();
+    expect(() => startGame({}, noFilter)).toThrow();
+  });
+
+  it('すぐに勝敗が決まる国を最初の国にしない', () => {
+    // A-B-C-D-E-F の一本道では両端だけが3手以内に決着しない
+    const line: CountryMap = {
+      A: country('A', 'A', 'a', ['B']),
+      B: country('B', 'B', 'b', ['A', 'C']),
+      C: country('C', 'C', 'c', ['B', 'D']),
+      D: country('D', 'D', 'd', ['C', 'E']),
+      E: country('E', 'E', 'e', ['D', 'F']),
+      F: country('F', 'F', 'f', ['E']),
+      JPN: country('Japan', '日本', 'にほん', []),
+    };
+    const settings = { ...noFilter, removeEarlyDecided: true };
+    expect(startGame(line, settings, () => 0).current).toBe('A');
+    expect(startGame(line, settings, () => 0.99).current).toBe('F');
+  });
+
+  it('最初の国にできる国がなければ例外を投げる', () => {
+    expect(() => startGame(countries, { ...noFilter, removeEarlyDecided: true })).toThrow();
   });
 });
 
@@ -157,17 +167,25 @@ describe('availableNeighbors', () => {
 
 describe('cpuMove', () => {
   it('まだ使われていない隣接国へ進む', () => {
-    const next = cpuMove(countries, stateAt('FRA', ['FRA', 'ESP']), () => 0);
+    const next = cpuMove(countries, stateAt('FRA', ['FRA', 'ESP']), 'normal', () => 0);
     expect(next).toEqual(stateAt('BRA', ['FRA', 'ESP', 'BRA']));
   });
 
   it('ミスの回数はそのまま', () => {
-    expect(cpuMove(countries, stateAt('ESP', ['ESP'], 1), () => 0)?.mistakes).toBe(1);
+    expect(cpuMove(countries, stateAt('ESP', ['ESP'], 1), 'normal', () => 0)?.mistakes).toBe(1);
   });
 
   it('言える国がなければ null', () => {
     expect(cpuMove(countries, stateAt('MAR', ['MAR', 'ESP']))).toBeNull();
     expect(cpuMove(countries, stateAt('JPN'))).toBeNull();
+    expect(cpuMove(countries, stateAt('JPN'), 'hard')).toBeNull();
+  });
+
+  it('ハードモードでは相手を詰ませる手を選ぶ', () => {
+    // フランスの次にブラジルかバチカンを言えば相手は言えないが、スペインだとモロッコで返される
+    const state = stateAt('FRA');
+    expect(cpuMove(countries, state, 'normal', () => 0)?.current).toBe('ESP');
+    expect(cpuMove(countries, state, 'hard', () => 0)?.current).toBe('BRA');
   });
 });
 

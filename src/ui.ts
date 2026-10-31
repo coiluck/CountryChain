@@ -1,4 +1,5 @@
 import type { Country } from './game.ts';
+import type { Strategy } from './search.ts';
 import { renderMap } from './d3.ts';
 
 export type Sender = 'system' | 'cpu' | 'user';
@@ -22,7 +23,7 @@ export function clearChat(): void {
 }
 
 // メッセージ枠を作ってログに追加
-function appendMessage(content: string | Node, sender: Sender | 'map'): HTMLDivElement {
+function appendMessage(content: string | Node, sender: Sender | 'map' | 'review'): HTMLDivElement {
   const messageDiv = document.createElement('div');
   messageDiv.className = `message ${sender}-message`;
 
@@ -48,6 +49,52 @@ export function addMap(used: ReadonlySet<string>, current: string): void {
   map.className = 'country-map aspect-2/1 w-md max-w-full overflow-hidden rounded-xl';
   appendMessage(map, 'map');
   renderMap(map, used, current);
+}
+
+type Step = { text: string; kind: 'cpu' | 'user' | 'end' };
+
+// 手を横に並べた1行
+function stepRow(steps: Step[], isPlayed: boolean): HTMLDivElement {
+  const row = document.createElement('div');
+  row.className = 'step-row';
+  row.classList.toggle('is-played', isPlayed);
+  row.append(...steps.map(({ text, kind }) => {
+    const step = document.createElement('span');
+    step.className = `step is-${kind}`;
+    step.textContent = text;
+    return step;
+  }));
+  return row;
+}
+
+// コンピュータの手。相手が何も言えなければ詰みを付ける
+function cpuSteps(strategy: Strategy, nameOf: (code: string) => string): Step[] {
+  const steps: Step[] = [{ text: nameOf(strategy.play), kind: 'cpu' }];
+  if (strategy.replies.length === 0) steps.push({ text: '詰み', kind: 'end' });
+  return steps;
+}
+
+// プレイヤーの返しごとに、コンピュータの次の手を同じ行に並べた木
+function replyTree(strategy: Strategy, nameOf: (code: string) => string, played: readonly string[]): HTMLUListElement {
+  const list = document.createElement('ul');
+  for (const { reply, next } of strategy.replies) {
+    const isPlayed = played[0] === reply && played[1] === next.play;
+    const item = document.createElement('li');
+    item.append(stepRow([{ text: nameOf(reply), kind: 'user' }, ...cpuSteps(next, nameOf)], isPlayed));
+    if (next.replies.length > 0) item.append(replyTree(next, nameOf, isPlayed ? played.slice(2) : []));
+    list.append(item);
+  }
+  return list;
+}
+
+// 何を答えても詰みになる手順を表示。played は実際に言った国の順で、その道筋を強調する
+export function addCheckmateTree(strategy: Strategy, nameOf: (code: string) => string, played: readonly string[]): void {
+  const tree = document.createElement('div');
+  tree.className = 'checkmate-tree';
+  const isPlayed = played[0] === strategy.play;
+  tree.append(stepRow(cpuSteps(strategy, nameOf), isPlayed));
+  if (strategy.replies.length > 0) tree.append(replyTree(strategy, nameOf, isPlayed ? played.slice(1) : []));
+  appendMessage(tree, 'review');
 }
 
 export function addPlayAgainButton(onClick: () => void): void {
