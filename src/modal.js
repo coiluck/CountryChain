@@ -3,6 +3,11 @@ const modalCover = document.getElementById("modal-cover");
 const closeButton = document.getElementById("close-button");
 const closeX = document.getElementById("modal-x");
 const helpButton = document.getElementById("help-button");
+const closeListeners = [];
+
+export function onModalClose(listener) {
+  closeListeners.push(listener);
+}
 
 function showModal() {
   const rect = helpButton.getBoundingClientRect();
@@ -18,6 +23,7 @@ function showModal() {
 // アニメーション後の非表示は CSS 側で行う
 function hideModal() {
   modal.classList.remove("is-open");
+  closeListeners.forEach((listener) => listener());
 }
 
 helpButton.addEventListener('click', showModal);

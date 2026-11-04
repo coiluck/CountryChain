@@ -29,6 +29,12 @@ export function readSettings(): Settings {
   };
 }
 
+// 国の除外に関わる設定が prev から変わっているか
+export function hasCountrySettingsChanged(prev: Settings): boolean {
+  const now = readSettings();
+  return (Object.keys(SETTING_IDS) as (keyof typeof SETTING_IDS)[]).some((key) => prev[key] !== now[key]);
+}
+
 // localStorage から設定を復元、変更時に保存
 export function setupSettingsStorage(): void {
   for (const id of Object.values(SETTING_IDS)) {
